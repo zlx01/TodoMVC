@@ -70,7 +70,10 @@ function App() {
     setEditedTodo(null)
     const newTodos = todos.map((item) => {
       if (item.id === todo.id) {
-        item.title = beforeEditCache.current
+        return {
+          ...item,
+          title: beforeEditCache.current,
+        }
       }
       return item
     })
@@ -83,7 +86,10 @@ function App() {
       const title = todo.title.trim()
       const newTodos = todos.map((item) => {
         if (item.id === todo.id) {
-          item.title = title
+          return {
+            ...item,
+            title,
+          }
         }
         return item
       })
@@ -117,7 +123,10 @@ function App() {
   function onTodoChecked(todo, e) {
     const newTodos= todos.map((item) => {
       if (item.id === todo.id) {
-        item.completed = e.target.checked
+        return {
+          ...item,
+          completed: e.target.checked,
+        }
       }
       return item
     })
@@ -127,7 +136,10 @@ function App() {
   function onTodoChange(todo, e) {
     const newTodos= todos.map((item) => {
       if (item.id === todo.id) {
-        item.title = e.target.value
+        return {
+          ...item,
+          title: e.target.value,
+        }
       }
       return item
     })

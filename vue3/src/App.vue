@@ -1,8 +1,3 @@
-<!--
-一个完全标准的 TodoMVC 实现
-https://todomvc.com/
--->
-
 <script setup>
 import { ref, computed, watchEffect } from 'vue'
 
@@ -126,7 +121,7 @@ function onHashChange() {
               @vue:mounted="({ el }) => el.focus()"
               @blur="doneEdit(todo)"
               @keyup.enter="doneEdit(todo)"
-              @keyup.escape="cancelEdit(todo)"
+              @keyup.esc="cancelEdit(todo)"
           >
         </li>
       </ul>
